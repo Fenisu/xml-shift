@@ -5,6 +5,7 @@ import glob
 import sys
 
 SHIFT = 160
+PREFIX = "new"
 
 
 def shift_root_xml(root):
@@ -18,7 +19,7 @@ def main():
             tree = ET.parse(file)
             root = tree.getroot()
             shift_root_xml(root)
-            tree.write('new-{}'.format(file))
+            tree.write('{}-{}'.format(PREFIX, file))
         except:
             print("Script failed!!")
             sys.exit(2)
